@@ -8,7 +8,7 @@ const int PORT = 8080;
 
 void handle_request(int client_socket)
 {
-    const char *response = "HTT{/1.1 200 OK\r\nContext-Type: text/html\r\n\r\n<!DOCTYPE html><html><head><title>My C++ Web Server</title>/head><body><h1>Hello, this is my first C++ web server!</h1></body></html>";
+    const char *response = "HTTP/1.1 200 OK\r\nContext-Type: text/html\r\n\r\n<!DOCTYPE html><html><head><title>My C++ Web Server</title>/head><body><h1>Hello, this is my first C++ web server!</h1></body></html>";
     send(client_socket, response, strlen(response), 0);
     close(client_socket);
 }
