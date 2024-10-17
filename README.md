@@ -293,7 +293,7 @@ Address translation is a crucial aspect of paging in memory management for sever
 
 ## 11. Explain Paging with TLB.
 
-> You can refer this video: [https://www.youtube.com/watch?v=Z2T2vnyZl0o](!https://www.youtube.com/watch?v=Z2T2vnyZl0o)
+> You can refer this video: [https://www.youtube.com/watch?v=Z2T2vnyZl0o](https://www.youtube.com/watch?v=Z2T2vnyZl0o)
 
 ## 12. Explain Two Level Paging with Diagram.
 
