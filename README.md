@@ -1,5 +1,4 @@
-# Important Questions
-
+# Memory Management
 
 ## 1. Differentiate between Static Memory Allocation and Dynamic Memory Allocation.
 
