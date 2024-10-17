@@ -380,7 +380,7 @@ The total number of bits in the logical address is \( N + M + O \).
 
    The logical address can be represented as:
    ```
-   \text{Logical Address} = (S, O)
+   Logical Address = (S, O)
    ```
 
 2. **Segment Table Lookup**: When a program generates a logical address:
@@ -390,7 +390,7 @@ The total number of bits in the logical address is \( N + M + O \).
 
 3. **Physical Address Calculation**: The physical address is determined using the following formula:
    ```
-   \text{Physical Address} = \text{Base} + O
+   Physical Address = Base + O
    ```
    where:
    - **Base**: The base address of the segment retrieved from the segment table.
