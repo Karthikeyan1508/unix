@@ -1,3 +1,5 @@
+# Operating Systems
+
 ## 1. Differentiate between Static Memory Allocation and Dynamic Memory Allocation.
 
 | **Feature**                   | **Static Memory Allocation**                      | **Dynamic Memory Allocation**                      |
