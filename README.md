@@ -291,3 +291,48 @@ Address translation is a crucial aspect of paging in memory management for sever
 
 ***
 
+## 11. Explain Paging with TLB.
+
+> You can refer this video: [https://www.youtube.com/watch?v=Z2T2vnyZl0o](!https://www.youtube.com/watch?v=Z2T2vnyZl0o)
+
+## 12. Explain Two Level Paging with Diagram.
+
+### Two-Level Paging
+
+Two-level paging is an extension of the single-level paging scheme that provides a more efficient way to manage the page tables, especially for large address spaces. It uses a hierarchical structure to reduce the size of the page table and to simplify the address translation process.
+
+#### Concept of Two-Level Paging
+
+In two-level paging, the logical address space is divided into three parts:
+
+1. **Page Directory**: The first-level table, which holds pointers to second-level page tables.
+2. **Page Table**: The second-level table, which contains the actual frame numbers for the pages.
+3. **Offset**: The offset within the page to access the specific data.
+
+#### Logical Address Structure
+
+The logical address can be represented as follows:
+
+```
+| Directory Index | Page Table Index | Offset |
+|-----------------|------------------|--------|
+|      N bits     |      M bits      |  O bits|
+```
+
+- **N**: Number of bits for the directory index.
+- **M**: Number of bits for the page table index.
+- **O**: Number of bits for the offset.
+
+The total number of bits in the logical address is \( N + M + O \).
+
+### Address Translation Process
+
+1. **Extract the Indices**: The logical address is divided into three parts based on the bit allocation.
+2. **Access the Page Directory**: Use the directory index to access the page directory and retrieve the address of the corresponding page table.
+3. **Access the Page Table**: Use the page table index to access the specific page table and retrieve the frame number.
+4. **Combine with Offset**: Combine the frame number with the offset to generate the physical address.
+
+![image](https://github.com/user-attachments/assets/e84c32d6-a841-433e-b0ec-8c8b5ee8feb6)
+
+***
+
