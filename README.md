@@ -336,6 +336,7 @@ The total number of bits in the logical address is \( N + M + O \).
 
 ***
 <br>
+
 # Segmenation
 
 ## 1. Differentiate Paging and Segmentation.
@@ -355,8 +356,6 @@ The total number of bits in the logical address is \( N + M + O \).
 ***
 
 ## 2. Explain :
-
-
 
 ### a. Segmentation Concept
 
