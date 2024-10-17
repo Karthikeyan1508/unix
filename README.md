@@ -399,3 +399,116 @@ The total number of bits in the logical address is \( N + M + O \).
 4. **Bounds Checking**: The operating system performs bounds checking to ensure that the offset is valid:
    - If `O < Limit`, the address is valid, and the physical address can be used to access memory.
    - If `O >= Limit`, an error occurs, typically resulting in a segmentation fault, indicating an invalid memory access.
+
+***
+
+<br>
+
+# Virtual Memory
+
+### 1. What is Virtual Memory and Its Concept
+
+**Virtual Memory** is a memory management technique that allows an operating system to use hardware and software to compensate for physical memory shortages. It creates an illusion of a larger main memory (RAM) by using disk space to store parts of programs that are not currently in use.
+
+#### Key Concepts of Virtual Memory:
+
+- **Memory Abstraction**: Virtual memory abstracts the physical memory and provides each process with its own virtual address space, enhancing security and isolation.
+- **Paging**: Virtual memory is often implemented using paging, where the virtual address space is divided into pages, which can be mapped to physical memory frames.
+- **Swapping**: When a program requires more memory than is physically available, the operating system can swap pages between RAM and disk storage (usually a hard drive or SSD).
+- **Benefits**: 
+  - Allows larger applications to run on systems with limited physical memory.
+  - Improves multitasking by enabling processes to share memory.
+  - Reduces the likelihood of fragmentation.
+
+***
+
+### 2. What is Demand Paging and Demand Segmentation?
+
+**Demand Paging** is a method of loading pages into memory only when they are needed, rather than loading the entire program at once. 
+
+**Demand Segmentation**, on the other hand, is similar but focuses on loading segments of a program as they are needed.
+
+#### Differences from Paging and Segmentation:
+
+- **Paging**: In standard paging, all pages can be loaded into memory when a program starts, regardless of whether they are immediately needed.
+- **Segmentation**: Standard segmentation may load all segments at the beginning, leading to unnecessary memory usage.
+- **Demand Paging/Secmentation**: Only the required pages or segments are loaded on demand, thus optimizing memory usage and reducing load times.
+
+***
+
+### 3. Explain Demand Paging Concept
+
+**Demand Paging** involves the following steps:
+
+1. **Lazy Loading**: When a process tries to access a page that is not currently in memory, a page fault occurs.
+2. **Page Fault Handling**: The operating system intervenes, suspending the process and locating the required page on the disk.
+3. **Loading the Page**: The OS loads the required page into an available frame in memory, updating the page table.
+4. **Resuming the Process**: The process is then resumed, and the instruction that caused the page fault is retried.
+
+This technique allows systems to run larger applications without needing sufficient physical memory for all of them simultaneously.
+
+***
+
+### 4. What is a Page Fault?
+
+A **Page Fault** occurs when a program accesses a page that is not currently in memory. This triggers the operating system to take action to load the required page from disk into memory.
+
+#### Types of Page Faults:
+
+- **Minor Page Fault**: The page is in memory but not in the current process’s working set. It can be quickly resolved without disk access.
+- **Major Page Fault**: The page is not in memory at all and must be read from the disk, which is time-consuming.
+
+***
+
+### 5. How Page Fault is Addressed Using FIFO, Optimal, and Page Replacement Algorithms with Examples
+
+**Page Replacement Algorithms** determine which pages to remove from memory when a new page must be loaded.
+
+#### a. FIFO (First-In, First-Out):
+
+- **Concept**: The oldest page in memory is replaced first.
+- **Example**: If the memory can hold three pages and the current pages are 1, 2, and 3, and page 4 is needed:
+  - The pages in memory: [1, 2, 3] (1 is the oldest)
+  - When page 4 is requested, page 1 is replaced: [2, 3, 4].
+
+#### b. Optimal Page Replacement:
+
+- **Concept**: Replace the page that will not be used for the longest period in the future.
+- **Example**: For pages 1, 2, 3, 4, 1, 5:
+  - Current pages: [1, 2, 3]
+  - If page 4 is needed, it will replace page 3 (assuming it is the farthest in the future).
+
+#### c. Least Recently Used (LRU):
+
+- **Concept**: Replace the page that has not been used for the longest time.
+- **Example**: For pages 1, 2, 3, 4, 1, 5:
+  - Current pages: [1, 2, 3]
+  - Page 4 replaces page 2 (if it hasn’t been accessed recently).
+
+***
+
+### 6. What is Belady's Anomaly Problem?
+
+**Belady's Anomaly** refers to the counterintuitive situation in some page replacement algorithms (like FIFO) where increasing the number of page frames results in an increase in the number of page faults. This contradicts the expectation that more frames should lead to fewer page faults.
+
+#### Example:
+
+Consider the reference string: 1, 2, 3, 4, 1, 2, 5
+
+- With 3 frames (FIFO): 
+  - Page faults = 5
+- With 4 frames:
+  - Page faults = 6
+
+This anomaly can occur with specific sequences of memory references.
+
+*** 
+
+### 7. What is Thrashing?
+
+**Thrashing** occurs when a system spends more time swapping pages in and out of memory than executing processes. This leads to a significant decrease in performance because the CPU is constantly waiting for memory pages to be loaded, rather than performing actual computations.
+
+#### Causes of Thrashing:
+
+- **Insufficient Physical Memory**: When the total memory requirement of all running processes exceeds physical memory.
+- **High Level of Multiprogramming**: Too many processes competing for limited memory resources.
