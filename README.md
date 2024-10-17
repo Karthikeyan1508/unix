@@ -125,3 +125,51 @@ Using the same system with 1 MB of memory, if processes A, B, and C are loaded w
 | **Flexibility**              | Limited; requires large contiguous blocks                  | More flexible; can utilize scattered memory               |
 
 Both contiguous and non-contiguous memory allocation methods have their own advantages and disadvantages. The choice between them depends on the specific requirements and constraints of the operating system and the applications running on it.
+
+***
+
+## 6. 
+
+***
+
+## 7. What are the disadvantages of Contigous Memory Allocation and how it is addressed using Non-Contigous Memory Allocation?
+
+### Disadvantages of Contiguous Memory Allocation
+
+1. **External Fragmentation**:
+   - **Description**: Over time, as processes are loaded and removed from memory, free memory becomes fragmented into small, non-contiguous blocks. This fragmentation can prevent the allocation of larger processes, even if the total free memory is sufficient.
+   - **Example**: If there are multiple small free blocks scattered throughout memory, a new process requiring a large contiguous block may fail to allocate memory despite sufficient total free space.
+
+2. **Wasted Space**:
+   - **Description**: When a process is loaded into a fixed-size partition, any leftover space in that partition is wasted. This internal fragmentation can lead to inefficient memory usage.
+   - **Example**: If a 100 KB partition is allocated to a process that only requires 75 KB, the remaining 25 KB is wasted and cannot be used for other processes.
+
+3. **Limited Flexibility**:
+   - **Description**: The system must find a large enough contiguous block of memory for each new process. If there is insufficient contiguous space available, the system may be unable to load new processes, even if enough total memory exists.
+   - **Example**: If processes are being allocated and deallocated frequently, the chances of finding a large enough contiguous block become increasingly limited.
+
+4. **Complicated Allocation**:
+   - **Description**: The operating system must manage memory carefully to minimize fragmentation, which can complicate memory allocation and deallocation.
+   - **Example**: The OS must constantly track free and allocated memory spaces, making allocation decisions more complex.
+
+### How Non-Contiguous Memory Allocation Addresses These Disadvantages
+
+1. **Reduction of External Fragmentation**:
+   - **Solution**: Non-contiguous memory allocation allows processes to be divided into smaller, manageable units (e.g., pages or segments) that can be stored in different locations in memory. This method mitigates the problem of external fragmentation because any free memory block can be utilized, regardless of its position.
+   - **Example**: In paging, a process can occupy multiple pages spread throughout memory, allowing for better use of available memory and preventing the issue of large blocks being fragmented.
+
+2. **Efficient Memory Utilization**:
+   - **Solution**: Since non-contiguous allocation can use any available free block, it helps in utilizing memory more effectively, reducing internal fragmentation. This means that processes can be allocated exactly the amount of memory they need without wasting space.
+   - **Example**: If a process requires 75 KB and multiple free blocks are available (30 KB + 45 KB), they can be combined for the process without wasting space.
+
+3. **Improved Flexibility**:
+   - **Solution**: Non-contiguous allocation allows for greater flexibility in memory allocation. New processes can be loaded into any available memory space without needing a large contiguous block.
+   - **Example**: If a system has several small free spaces scattered in memory, a new process can be loaded into those spaces as needed, overcoming the limitation of contiguous space requirements.
+
+4. **Simplified Allocation**:
+   - **Solution**: By breaking processes into smaller units, the operating system can manage memory allocation more easily, as it can allocate smaller blocks without worrying about finding large contiguous spaces.
+   - **Example**: Paging systems maintain a page table that maps virtual pages to physical frames, allowing for easier allocation and deallocation of memory without the overhead of managing large contiguous blocks.
+
+***
+
+## 8. 
