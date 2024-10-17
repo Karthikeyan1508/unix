@@ -1,4 +1,4 @@
-# Memory Management 
+# Important Questions
 
 
 ### 1. Differentiate between Static Memory Allocation and Dynamic Memory Allocation.
@@ -39,3 +39,19 @@ In operating systems with virtual memory, logical addresses are mapped to physic
 
 ***
 
+### 3. Define the swapping technique, relocation, memory mapping, and the Memory Management Unit (MMU), along with their purposes.
+
+Certainly! Here’s a comparison table for swapping technique, relocation, memory mapping, and Memory Management Unit (MMU):
+
+| **Concept**                  | **Definition**                                                                 | **Purpose**                                                                                     |
+|------------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| **Swapping Technique**       | Moving entire processes between main memory and secondary storage               | Frees up RAM by temporarily moving inactive processes to disk, improving multitasking           |
+| **Relocation**               | Adjusting program addresses so they can load into different parts of memory     | Provides flexibility in memory allocation, enabling processes to move around memory as needed    |
+| **Memory Mapping**           | Mapping logical addresses to physical addresses using a mapping table           | Enables virtual memory, process isolation, and access to larger address spaces than physical memory |
+| **Memory Management Unit (MMU)** | Hardware component that translates logical addresses to physical addresses | Facilitates virtual memory, process isolation, memory protection, and efficient memory allocation |
+
+This table outlines each concept's function and its role in the memory management system of an operating system.
+
+***
+
+### 4. 
