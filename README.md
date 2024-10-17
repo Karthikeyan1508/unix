@@ -1,7 +1,7 @@
 # Important Questions
 
 
-### 1. Differentiate between Static Memory Allocation and Dynamic Memory Allocation.
+#### 1. Differentiate between Static Memory Allocation and Dynamic Memory Allocation.
 
 | **Feature**                   | **Static Memory Allocation**                      | **Dynamic Memory Allocation**                      |
 |-------------------------------|---------------------------------------------------|----------------------------------------------------|
@@ -20,7 +20,7 @@ In operating systems, static memory allocation is generally used for predictable
 
 ***
 
-### 2. Differentiate between Logical and Physical Address.
+#### 2. Differentiate between Logical and Physical Address.
 
 | **Aspect**                    | **Logical Address**                              | **Physical Address**                             |
 |-------------------------------|--------------------------------------------------|--------------------------------------------------|
@@ -39,7 +39,7 @@ In operating systems with virtual memory, logical addresses are mapped to physic
 
 ***
 
-### 3. Define the swapping technique, relocation, memory mapping, and the Memory Management Unit (MMU), along with their purposes.
+#### 3. Define the swapping technique, relocation, memory mapping, and the Memory Management Unit (MMU), along with their purposes.
 
 Certainly! Here’s a comparison table for swapping technique, relocation, memory mapping, and Memory Management Unit (MMU):
 
@@ -54,11 +54,11 @@ This table outlines each concept's function and its role in the memory managemen
 
 ***
 
-### 4. 
+#### 4. 
 
 ***
 
-### 5. Explain Contiguous and Non-Contigous Allocation of Memory.
+#### 5. Explain Contiguous and Non-Contigous Allocation of Memory.
 
 Contiguous and non-contiguous memory allocation are two different methods of allocating memory to processes in an operating system. Here’s a detailed explanation of each:
 
