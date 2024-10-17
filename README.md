@@ -188,8 +188,7 @@ Both contiguous and non-contiguous memory allocation methods have their own adva
 
 ## 9. Explain the Concept of Paging.
 
-> [!TIP]
-> You can refer this : https://www.youtube.com/watch?v=6c-mOFZwP_8
+> You can refer this : [https://www.youtube.com/watch?v=6c-mOFZwP_8](https://www.youtube.com/watch?v=6c-mOFZwP_8)
 
 ### Concept of Paging
 
