@@ -379,9 +379,9 @@ The total number of bits in the logical address is \( N + M + O \).
    - **Offset (O)**: Specifies the exact location within that segment.
 
    The logical address can be represented as:
-   \[
+   ```
    \text{Logical Address} = (S, O)
-   \]
+   ```
 
 2. **Segment Table Lookup**: When a program generates a logical address:
    - The segment number is used to index into the segment table.
@@ -389,13 +389,13 @@ The total number of bits in the logical address is \( N + M + O \).
    - The base address indicates where the segment is located in physical memory, while the limit indicates the size of that segment.
 
 3. **Physical Address Calculation**: The physical address is determined using the following formula:
-   \[
+   ```
    \text{Physical Address} = \text{Base} + O
-   \]
+   ```
    where:
    - **Base**: The base address of the segment retrieved from the segment table.
    - **Offset (O)**: The offset within the segment.
 
 4. **Bounds Checking**: The operating system performs bounds checking to ensure that the offset is valid:
-   - If \(O < \text{Limit}\), the address is valid, and the physical address can be used to access memory.
-   - If \(O \geq \text{Limit}\), an error occurs, typically resulting in a segmentation fault, indicating an invalid memory access.
+   - If `O < Limit`, the address is valid, and the physical address can be used to access memory.
+   - If `O >= Limit`, an error occurs, typically resulting in a segmentation fault, indicating an invalid memory access.
