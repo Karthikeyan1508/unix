@@ -335,4 +335,68 @@ The total number of bits in the logical address is \( N + M + O \).
 ![image](https://github.com/user-attachments/assets/e84c32d6-a841-433e-b0ec-8c8b5ee8feb6)
 
 ***
+<br>
+# Segmenation
 
+## 1. Differentiate Paging and Segmentation.
+
+| Feature                     | Paging                                           | Segmentation                                    |
+|-----------------------------|-------------------------------------------------|------------------------------------------------|
+| **Definition**              | A memory management scheme that eliminates the need for contiguous allocation of physical memory. | A memory management technique that divides a program into segments based on logical divisions. |
+| **Memory Division**         | Divides the logical address space into fixed-size pages. | Divides the logical address space into variable-size segments. |
+| **Size of Units**           | Fixed-size pages (commonly 4 KB).              | Variable-size segments (e.g., functions, arrays). |
+| **Address Translation**     | Uses a page table to translate logical page numbers to frame numbers. | Uses a segment table for translation, where each segment has a base and limit. |
+| **Internal Fragmentation**  | Can lead to internal fragmentation if the last page is not fully utilized. | Can lead to external fragmentation, as segments vary in size and can leave gaps. |
+| **External Fragmentation**  | None, as all pages are of equal size.          | Yes, segments can leave free spaces between them, causing external fragmentation. |
+| **Logical Address Structure** | Logical addresses consist of a page number and an offset within the page. | Logical addresses consist of a segment number and an offset within the segment. |
+| **Protection**              | Provides protection at the page level.         | Provides protection at the segment level, allowing different protection levels for different segments. |
+| **Usage**                   | Commonly used in modern operating systems for efficient memory management. | Often used in systems that require logical segmentation of programs (like in some programming languages). |
+
+***
+
+## 2. Explain :
+
+
+
+### a. Segmentation Concept
+
+**Segmentation** is a memory management scheme that divides the memory into variable-sized segments based on the logical divisions of a program. Each segment represents a logical unit, such as a function, array, or data structure, which helps to align memory allocation with the way programs are designed.
+
+#### Key Features of Segmentation in Operating Systems:
+
+- **Logical Division**: Segments are based on the logical structure of the program, enabling a more intuitive organization of memory.
+- **Variable Size**: Unlike fixed-size pages in paging, segments can vary in size, accommodating the specific needs of different components.
+- **Segmentation Table**: The operating system maintains a segment table for each process. This table contains:
+  - **Base Address**: The starting physical address of the segment in main memory.
+  - **Limit**: The length of the segment, which specifies the maximum allowable offset within that segment.
+- **Ease of Management**: Segmentation allows programs to be structured in a way that matches their logical organization, making it easier for developers to manage memory.
+
+### b. Address Translation in Segmentation
+
+**Address translation in segmentation** refers to the method of converting a logical address into a physical address in memory. This process involves the following steps:
+
+1. **Logical Address Structure**: A logical address in segmentation is composed of two parts:
+   - **Segment Number (S)**: Identifies which segment of the program is being accessed.
+   - **Offset (O)**: Specifies the exact location within that segment.
+
+   The logical address can be represented as:
+   \[
+   \text{Logical Address} = (S, O)
+   \]
+
+2. **Segment Table Lookup**: When a program generates a logical address:
+   - The segment number is used to index into the segment table.
+   - The segment table provides the base address and limit for the specified segment.
+   - The base address indicates where the segment is located in physical memory, while the limit indicates the size of that segment.
+
+3. **Physical Address Calculation**: The physical address is determined using the following formula:
+   \[
+   \text{Physical Address} = \text{Base} + O
+   \]
+   where:
+   - **Base**: The base address of the segment retrieved from the segment table.
+   - **Offset (O)**: The offset within the segment.
+
+4. **Bounds Checking**: The operating system performs bounds checking to ensure that the offset is valid:
+   - If \(O < \text{Limit}\), the address is valid, and the physical address can be used to access memory.
+   - If \(O \geq \text{Limit}\), an error occurs, typically resulting in a segmentation fault, indicating an invalid memory access.
