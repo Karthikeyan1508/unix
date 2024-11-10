@@ -25,7 +25,7 @@ int main()
 
         std::string message = "Hello, from parent";
 
-        if (write(pipe_fd, message.c_str(), message.length()) == -1)
+        if (write(pipe_fd[1], message.c_str(), message.length()) == -1)
         {
             perror("Write to pipe failed");
             return 1;
@@ -38,7 +38,7 @@ int main()
         close(pipe_fd[1]);
 
         char buffer[50];
-        sszie_t bytes_read;
+        ssize_t bytes_read;
 
         bytes_read = read(pipe_fd[0], buffer, sizeof(buffer));
         if (bytes_read == -1)
